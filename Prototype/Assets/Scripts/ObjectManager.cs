@@ -31,7 +31,6 @@ public class ObjectManager : MonoBehaviour
         mainCamera.gameObject.SetActive(false);
         securityCamera.gameObject.SetActive(true);
         securityCanvas.gameObject.SetActive(true);
-        playerScript.canMove = false;
     }
 
     private void SwitchToMainCameraView()

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
     [SerializeField] ObjectManager objectManager;
+    [SerializeField] LevelLoader levelLoader;
 
     private Vector2 movementInput = Vector2.zero;
     private Direction direction = Direction.DOWN;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
         {
             if (canActivateComputer)
             {
-                objectManager.ToggleCameraViews();
+                levelLoader.CameraCrossfade();
                 Debug.Log("Using Computer");
             }
         }

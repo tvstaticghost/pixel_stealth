@@ -3,7 +3,6 @@ using UnityEngine;
 public class SecurityComputer : MonoBehaviour
 {
     private GameObject player;
-
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

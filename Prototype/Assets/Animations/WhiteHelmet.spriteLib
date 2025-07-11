@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle_Down
+    m_Hash: 863768520
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: astro_down_idle_0
+      m_Hash: 147843326
+      m_Sprite: {fileID: -1903171284962876265, guid: cf07bfc002334114ab8d54768b427ce0, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1903171284962876265, guid: cf07bfc002334114ab8d54768b427ce0, type: 3}
+    - m_Name: astro_down_idle_1
+      m_Hash: 1070127208
+      m_Sprite: {fileID: 3021621508484619322, guid: cf07bfc002334114ab8d54768b427ce0, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3021621508484619322, guid: cf07bfc002334114ab8d54768b427ce0, type: 3}
+    - m_Name: astro_down_idle_2
+      m_Hash: 650217938
+      m_Sprite: {fileID: 3541320658558062948, guid: cf07bfc002334114ab8d54768b427ce0, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3541320658558062948, guid: cf07bfc002334114ab8d54768b427ce0, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 3
+  - m_Name: Idle_Up
+    m_Hash: 1065979461
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: astro_up_idle_0
+      m_Hash: 665947196
+      m_Sprite: {fileID: -3648305049272514036, guid: 0c394b7cd3923c04caf230a2e2eb4770, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3648305049272514036, guid: 0c394b7cd3923c04caf230a2e2eb4770, type: 3}
+    - m_Name: astro_up_idle_1
+      m_Hash: 280411306
+      m_Sprite: {fileID: 9138997154266035242, guid: 0c394b7cd3923c04caf230a2e2eb4770, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9138997154266035242, guid: 0c394b7cd3923c04caf230a2e2eb4770, type: 3}
+    - m_Name: astro_up_idle_2
+      m_Hash: 163573008
+      m_Sprite: {fileID: -4320064404308891215, guid: 0c394b7cd3923c04caf230a2e2eb4770, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4320064404308891215, guid: 0c394b7cd3923c04caf230a2e2eb4770, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 3
+  - m_Name: Idle_Right
+    m_Hash: 277959981
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: astro_right_idle_0
+      m_Hash: 606231356
+      m_Sprite: {fileID: 9113432957878676127, guid: 821b3a3a2a75b7b45a4baf350bec832f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9113432957878676127, guid: 821b3a3a2a75b7b45a4baf350bec832f, type: 3}
+    - m_Name: astro_right_idle_1
+      m_Hash: 321219498
+      m_Sprite: {fileID: -6654965127816466638, guid: 821b3a3a2a75b7b45a4baf350bec832f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6654965127816466638, guid: 821b3a3a2a75b7b45a4baf350bec832f, type: 3}
+    - m_Name: astro_right_idle_2
+      m_Hash: 170670608
+      m_Sprite: {fileID: -2182779806574329423, guid: 821b3a3a2a75b7b45a4baf350bec832f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2182779806574329423, guid: 821b3a3a2a75b7b45a4baf350bec832f, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 3
+  - m_Name: Walk_Down
+    m_Hash: 630520127
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: astro_down_walk_0
+      m_Hash: 862792047
+      m_Sprite: {fileID: -1215684927957775904, guid: d0b9dc3f7c17a82498175e3d101c5c0c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1215684927957775904, guid: d0b9dc3f7c17a82498175e3d101c5c0c, type: 3}
+    - m_Name: astro_down_walk_1
+      m_Hash: 74062329
+      m_Sprite: {fileID: 1114250484, guid: d0b9dc3f7c17a82498175e3d101c5c0c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1114250484, guid: d0b9dc3f7c17a82498175e3d101c5c0c, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Walk_Up
+    m_Hash: 947556182
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: astro_up_walk_0
+      m_Hash: 471027117
+      m_Sprite: {fileID: -8459159751823287873, guid: e47981306f69afe4896db5295580b6d1, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8459159751823287873, guid: e47981306f69afe4896db5295580b6d1, type: 3}
+    - m_Name: astro_up_walk_1
+      m_Hash: 722763067
+      m_Sprite: {fileID: 1844771823, guid: e47981306f69afe4896db5295580b6d1, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1844771823, guid: e47981306f69afe4896db5295580b6d1, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Walk_Right
+    m_Hash: 861854308
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: astro_right_walk_0
+      m_Hash: 528521901
+      m_Sprite: {fileID: -4070972003546587634, guid: 1a8907a7363294c4a81fe50695a4507c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4070972003546587634, guid: 1a8907a7363294c4a81fe50695a4507c, type: 3}
+    - m_Name: astro_right_walk_1
+      m_Hash: 679979579
+      m_Sprite: {fileID: 770937658, guid: 1a8907a7363294c4a81fe50695a4507c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 770937658, guid: 1a8907a7363294c4a81fe50695a4507c, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638878364874360409
+  m_Version: 1
