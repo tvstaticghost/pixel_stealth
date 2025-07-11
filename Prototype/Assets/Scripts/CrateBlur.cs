@@ -24,7 +24,6 @@ public class CrateBlur : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player Entered");
             foreach (GameObject crate in crates)
             {
                 SpriteRenderer sr = crate.GetComponent<SpriteRenderer>();

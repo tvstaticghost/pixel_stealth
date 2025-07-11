@@ -8,13 +8,31 @@ public class Player : MonoBehaviour
     [SerializeField] float movementSpeed;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
+    [SerializeField] ObjectManager objectManager;
 
     private Vector2 movementInput = Vector2.zero;
     private Direction direction = Direction.DOWN;
+    public bool canActivateComputer = false;
+    public bool canMove = true;
 
     public void Move(InputAction.CallbackContext context)
     {
-        movementInput = context.ReadValue<Vector2>();
+        if (canMove)
+        {
+            movementInput = context.ReadValue<Vector2>();   
+        }
+    }
+
+    public void UseComputer(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+        {
+            if (canActivateComputer)
+            {
+                objectManager.ToggleCameraViews();
+                Debug.Log("Using Computer");
+            }
+        }
     }
 
     void FixedUpdate()
