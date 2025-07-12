@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,17 +11,20 @@ public class Player : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] ObjectManager objectManager;
     [SerializeField] LevelLoader levelLoader;
+    [SerializeField] float grenadeCooldown;
 
     private Vector2 movementInput = Vector2.zero;
     private Direction direction = Direction.DOWN;
     public bool canActivateComputer = false;
     public bool canMove = true;
+    public bool canThrow = true;
+    public bool isThrowing = false;
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (canMove)
+        if (canMove && !isThrowing)
         {
-            movementInput = context.ReadValue<Vector2>();   
+            movementInput = context.ReadValue<Vector2>();
         }
     }
 
@@ -34,6 +38,30 @@ public class Player : MonoBehaviour
                 Debug.Log("Using Computer");
             }
         }
+    }
+
+    public void Throw(InputAction.CallbackContext context)
+    {
+        if (context.canceled && canThrow)
+        {
+            Debug.Log("Throw");
+            canThrow = false;
+            isThrowing = true;
+            StartCoroutine(GrenadeCooldown());
+            StartCoroutine(ThrowAnimationTimer());
+        }
+    }
+
+    IEnumerator GrenadeCooldown()
+    {
+        yield return new WaitForSeconds(grenadeCooldown);
+        canThrow = true;
+    }
+
+    IEnumerator ThrowAnimationTimer()
+    {
+        yield return new WaitForSeconds(0.35f);
+        isThrowing = false;
     }
 
     void FixedUpdate()
@@ -71,7 +99,14 @@ public class Player : MonoBehaviour
         }
         else
         {
-            PlayIdleAnimation();
+            if (isThrowing)
+            {
+                PlayThrowAnimation();
+            }
+            else
+            {
+                PlayIdleAnimation();
+            }
         }
     }
 
@@ -90,6 +125,25 @@ public class Player : MonoBehaviour
                 break;
             case Direction.RIGHT:
                 animator.Play("Idle_Right");
+                break;
+        }
+    }
+
+    private void PlayThrowAnimation()
+    {
+        switch (direction)
+        {
+            case Direction.DOWN:
+                animator.Play("Throw_Down");
+                break;
+            case Direction.UP:
+                animator.Play("Throw_Up");
+                break;
+            case Direction.LEFT:
+                animator.Play("Throw_Left");
+                break;
+            case Direction.RIGHT:
+                animator.Play("RightThrow");
                 break;
         }
     }
