@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     [SerializeField] ObjectManager objectManager;
     [SerializeField] LevelLoader levelLoader;
     [SerializeField] float grenadeCooldown;
+    [SerializeField] GameObject rightGrenadeSpawnPoint;
+    [SerializeField] GameObject leftGrenadeSpawnPoint;
+    [SerializeField] GameObject upGrenadeSpawnPoint;
+    [SerializeField] GameObject downGrenadeSpawnPoint;
+    [SerializeField] GameObject flashBang;
 
     private Vector2 movementInput = Vector2.zero;
     private Direction direction = Direction.DOWN;
@@ -34,8 +39,10 @@ public class Player : MonoBehaviour
         {
             if (canActivateComputer)
             {
+                movementInput = Vector2.zero;
+                canMove = false;
+                rb.linearVelocity = Vector2.zero;
                 levelLoader.CameraCrossfade();
-                Debug.Log("Using Computer");
             }
         }
     }
@@ -47,6 +54,7 @@ public class Player : MonoBehaviour
             Debug.Log("Throw");
             canThrow = false;
             isThrowing = true;
+            StartCoroutine(ThrowFlashBangAtRightTime());
             StartCoroutine(GrenadeCooldown());
             StartCoroutine(ThrowAnimationTimer());
         }
@@ -64,11 +72,24 @@ public class Player : MonoBehaviour
         isThrowing = false;
     }
 
+    IEnumerator ThrowFlashBangAtRightTime()
+    {
+        yield return new WaitForSeconds(0.21f);
+        ThrowFlashBang();
+    }
+
     void FixedUpdate()
     {
-        rb.linearVelocity = movementInput * movementSpeed;
+        if (canMove && !isThrowing)
+        {
+            rb.linearVelocity = movementInput * movementSpeed;
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
 
-        if (movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero && rb.linearVelocity != Vector2.zero)
         {
             if (Mathf.Abs(movementInput.x) > Mathf.Abs(movementInput.y))
             {
@@ -144,6 +165,25 @@ public class Player : MonoBehaviour
                 break;
             case Direction.RIGHT:
                 animator.Play("RightThrow");
+                break;
+        }
+    }
+
+    private void ThrowFlashBang()
+    {
+        switch (direction)
+        {
+            case Direction.DOWN:
+                Instantiate(flashBang, downGrenadeSpawnPoint.transform.position, downGrenadeSpawnPoint.transform.rotation);
+                break;
+            case Direction.UP:
+                Instantiate(flashBang, upGrenadeSpawnPoint.transform.position, upGrenadeSpawnPoint.transform.rotation);
+                break;
+            case Direction.LEFT:
+                Instantiate(flashBang, leftGrenadeSpawnPoint.transform.position, leftGrenadeSpawnPoint.transform.rotation);
+                break;
+            case Direction.RIGHT:
+                Instantiate(flashBang, rightGrenadeSpawnPoint.transform.position, rightGrenadeSpawnPoint.transform.rotation);
                 break;
         }
     }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
@@ -6,6 +7,8 @@ public class ObjectManager : MonoBehaviour
     [SerializeField] Camera securityCamera;
     [SerializeField] GameObject securityCanvas;
     [SerializeField] Player playerScript;
+    [SerializeField] GameObject flashBang;
+    [SerializeField] GameObject flashLight;
     private bool mainCameraView = false;
 
     public void ToggleCameraViews()
@@ -39,5 +42,17 @@ public class ObjectManager : MonoBehaviour
         securityCamera.gameObject.SetActive(false);
         securityCanvas.gameObject.SetActive(false);
         playerScript.canMove = true;
+    }
+
+    public void SpawnFlash(Vector3 pos, Quaternion rot)
+    {
+        GameObject flashInstance = Instantiate(flashLight, pos, rot);
+        StartCoroutine(FlashBangFlashTimer(flashInstance));
+    }
+
+    IEnumerator FlashBangFlashTimer(GameObject flash)
+    {
+        yield return new WaitForSeconds(0.05f);
+        Destroy(flash);
     }
 }
