@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelLoader
   - ObjectManager
+  - Monster
   layers:
   - Default
   - TransparentFX

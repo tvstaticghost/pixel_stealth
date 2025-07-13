@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject upGrenadeSpawnPoint;
     [SerializeField] GameObject downGrenadeSpawnPoint;
     [SerializeField] GameObject flashBang;
+    [SerializeField] GameObject flashBangCanvas;
+    [SerializeField] Camera mainCamera;
 
     private Vector2 movementInput = Vector2.zero;
     private Direction direction = Direction.DOWN;
@@ -186,5 +188,14 @@ public class Player : MonoBehaviour
                 Instantiate(flashBang, rightGrenadeSpawnPoint.transform.position, rightGrenadeSpawnPoint.transform.rotation);
                 break;
         }
+    }
+
+    public void FlashBanged()
+    {
+        Debug.Log("Called flash banged");
+        GameObject canvasInstance = Instantiate(flashBangCanvas);
+        canvasInstance.GetComponent<Canvas>().worldCamera = mainCamera;
+
+        Destroy(canvasInstance, 0.24f);
     }
 }
