@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
     {
         if (context.canceled && canThrow)
         {
-            Debug.Log("Throw");
+            Vector2 mousePos = context.ReadValue<Vector2>();
+            Debug.Log(Camera.main.ScreenToWorldPoint(mousePos));
             canThrow = false;
             isThrowing = true;
             StartCoroutine(ThrowFlashBangAtRightTime());

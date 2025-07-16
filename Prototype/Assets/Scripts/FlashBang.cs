@@ -51,7 +51,7 @@ public class FlashBang : MonoBehaviour
                 {
                     Debug.Log($"Monster is real: {monster}");
                 }
-                StartCoroutine(monster.FlashWhiteOverlay());
+                monster.StartCoroutine(monster.FlashWhiteOverlay());
             }
         }
     }
