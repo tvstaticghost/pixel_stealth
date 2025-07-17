@@ -54,7 +54,8 @@ public class Player : MonoBehaviour
         if (context.canceled && canThrow)
         {
             Vector2 mousePos = context.ReadValue<Vector2>();
-            Debug.Log(Camera.main.ScreenToWorldPoint(mousePos));
+            Debug.Log("mouse position: " + Camera.main.ScreenToWorldPoint(mousePos));
+            Debug.Log("Player position: " + transform.position);
             canThrow = false;
             isThrowing = true;
             StartCoroutine(ThrowFlashBangAtRightTime());
